@@ -12,6 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.silverorange.videoplayer.domain.VideoListViewModel
+import com.silverorange.videoplayer.feature.videolist.VideoListScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,8 +22,9 @@ class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      TopBar()
-      TextCard()
+      val viewModel: VideoListViewModel = viewModel()
+
+      VideoListScreen(viewModel = viewModel)
     }
   }
 }
