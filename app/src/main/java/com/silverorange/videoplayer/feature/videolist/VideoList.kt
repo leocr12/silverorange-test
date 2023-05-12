@@ -135,6 +135,7 @@ fun rememberExoPlayer(transitionIdState: MutableState<String>): ExoPlayer {
     val playerListener = object : Player.Listener {
         override fun onMediaItemTransition(mediaItem: MediaItem?, reason: Int) {
             super.onMediaItemTransition(mediaItem, reason)
+            //TODO video requiring two clicks to update to next video - information being updated
             if (reason == MEDIA_ITEM_TRANSITION_REASON_SEEK) {
                 transitionIdState.value = mediaItem?.mediaId ?: ""
             }
